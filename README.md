@@ -1,6 +1,6 @@
 # SpeechAI
 
-# SpeechAI HSE course, Autumn 2024
+### SpeechAI HSE course, Autumn 2024
 
 | #   | Date     | Description                                        | Materials                            |
 |-----|----------|----------------------------------------------------|--------------------------------------|
