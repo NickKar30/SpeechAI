@@ -120,3 +120,6 @@
 
 ### Полезные ссылки
 
+[Аугментации](https://pytorch.org/audio/stable/transforms.html)
+[LM для Librispeech](https://www.openslr.org/11/)
+[Библиотека для CTC](https://github.com/kensho-technologies/pyctcdecode)
