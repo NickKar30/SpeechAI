@@ -43,7 +43,7 @@
 
 Мы требуем, чтобы были выолнены следующие требования:
 
-- (До `-2.0 баллов`, если отсутствует) Логгирование. Ваши журналы `W&B` (`CometML`) должны включать:
+- (До `-20 баллов`, если отсутствует) Логгирование. Ваши журналы `W&B` (`CometML`) должны включать:
   - Текстовые отчеты со случайными сэмплами: `target: {target_text}`, `predict: {prediction_text}`, `CER: {cer}`, `WER: {wer}`
   - Изображения ваших спектрограмм на трейне и на валидации     
   - Норму градиента
@@ -51,34 +51,34 @@
   - Loss
   - Аудиозаписи/спектрограммы (после аугментации)
   
-(До `-1.0 балла`, если отсутствует) Реализуйте не менее 4 типов аугментаций, которые помогют при обучении ASR моделей.
+(До `-10 баллов`, если отсутствует) Реализуйте не менее 4 типов аугментаций, которые помогют при обучении ASR моделей.
 
 ### Quality score
 
 | Score | Dataset                     | CER | WER | Description                                                                     |
 | ----- | --------------------------- | --- | --- | ------------------------------------------------------------------------------- |
-| 1.0   | --                          | --  | --  | At least you tried                                                              |
-| 2.0   | LibriSpeech: test-clean     | 50  | --  | Well, it's something                                                            |
-| 3.0   | LibriSpeech: test-clean     | 30  | --  | You can guess the target phrase if you try                                      |
-| 4.0   | LibriSpeech: test-clean     | 20  | --  | It gets some words right                                                        |
-| 5.0   | LibriSpeech: test-clean     | --  | 40  | More than half of the words are looking fine                                    |
-| 6.0   | LibriSpeech: test-clean     | --  | 30  | It's quite readable                                                             |
-| 7.0   | LibriSpeech: test-clean     | --  | 20  | Occasional mistakes                                                             |
-| 8.0   | LibriSpeech: **test-other** | --  | 30  | Your network can handle somewhat noisy audio.                                   |
-| 8.5   | LibriSpeech: **test-other** | --  | 25  | Your network can handle somewhat noisy audio but it is still just close enough. |
-| 9.0   | LibriSpeech: **test-other** | --  | 20  | Somewhat suitable for practical applications.                                   |
-| 9.5   | LibriSpeech: **test-other** | --  | 15  | You are close to human performance.                                             |
-| 10.0  | LibriSpeech: **test-other** | --  | 10  | Technically better than a human. Well done!                                     |
+| 10   | --                          | --  | --  | At least you tried                                                              |
+| 20   | LibriSpeech: test-clean     | 50  | --  | Well, it's something                                                            |
+| 30   | LibriSpeech: test-clean     | 30  | --  | You can guess the target phrase if you try                                      |
+| 40   | LibriSpeech: test-clean     | 20  | --  | It gets some words right                                                        |
+| 50   | LibriSpeech: test-clean     | --  | 40  | More than half of the words are looking fine                                    |
+| 60   | LibriSpeech: test-clean     | --  | 30  | It's quite readable                                                             |
+| 70   | LibriSpeech: test-clean     | --  | 20  | Occasional mistakes                                                             |
+| 80   | LibriSpeech: **test-other** | --  | 30  | Your network can handle somewhat noisy audio.                                   |
+| 85   | LibriSpeech: **test-other** | --  | 25  | Your network can handle somewhat noisy audio but it is still just close enough. |
+| 90   | LibriSpeech: **test-other** | --  | 20  | Somewhat suitable for practical applications.                                   |
+| 95   | LibriSpeech: **test-other** | --  | 15  | You are close to human performance.                                             |
+| 100  | LibriSpeech: **test-other** | --  | 10  | Technically better than a human. Well done!                                     |
 
 > [!IMPORTANT]
 > Ваши результаты будут проверены на корректность на необъявленном наборе данных. Поэтому не нужно подстраиваться под тестовые данные. 
 
 ### Бонусы
-(+1.0 балл) Используйте внешнюю языковую модель (LM) для инференса. Примечание: реализация этой части даст очень значительный прирост качества (что значительно улучшит вашу метрику). 
+(+10 баллов) Используйте внешнюю языковую модель (LM) для инференса. Примечание: реализация этой части даст очень значительный прирост качества (что значительно улучшит вашу метрику). 
 
-(+1.0 балл) Используйте BPE токенизацию вместо букв. Вы можете использовать SentencePiece, HuggingFace или YouTokenToMe.
+(+10 баллов) Используйте BPE токенизацию вместо букв. Вы можете использовать SentencePiece, HuggingFace или YouTokenToMe.
 
-(до +3.0 балла) Обучите модель LAS (вместо CTC / с CTC). Не забудьте добавить в attention матрицы в логгирование.
+(до +30 баллов) Обучите модель LAS (вместо CTC / с CTC). Не забудьте добавить в attention матрицы в логгирование.
 
 > [!NOTE]
 > Если вы использете бонус с LM, то вам разрешено брать предварительно обученную LM из интернета и использовать внешнюю библиотеку для `beam_search`. Также вы должны показать, что ваша LM работает.
@@ -87,7 +87,7 @@
 > Если вы используете `BPE`, то вам нужно провести два эксперимента с\без BPE и сравнить их (т. е. сделать `ablation study`).
 
 > [!NOTE]
-> Бонус LAS применяется к таблице в разделе [Quality Score](#quality-score), то есть ваша окончательная оценка качества будет $\max(Оценка CTC, Оценка LAS + 3)$.
+> Бонус LAS применяется к таблице в разделе [Quality Score](#quality-score), то есть ваша окончательная оценка качества будет $\max(Оценка CTC, Оценка LAS + 30)$.
 
 ### Бонусные баллы/штрафы
 Мы можем вычесть или добавить баллы за очень плохую или очень хорошую структуру кода, нестандартные подходы, очень хороший отчет и т.д.
@@ -115,8 +115,8 @@
 0. Внимательно изучите каждый скрипт, это поможет вам понять структуру шаблона.
 1. Заполните все `TODO` в шаблоне.
 2. Протестируйте работу логгирования (`W&B` / `CometML`), создание датасета и даталоадера, инициализацию модели и трейнера.
-3. Протестируйте входы и выходы модели: убедитесь, что они нужных размеров.
-4. Запустите One-Batch-Test с простой моделью MLP. Убедитесь, что лосс близкок к нулю.
+3. Протестируйте входы и выходы модели и убедитесь, что они нужных размеров.
+4. Запустите One-Batch-Test с простой моделью MLP. Убедитесь, что лосс близок к нулю.
 
 ### Полезные ссылки
 
